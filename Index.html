@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Angeles Cisneros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* [Aquí va todo el CSS de la sección 2. Estilos CSS] */
+        /* Para simplificar, si usas un archivo styles.css externo, elimina esta etiqueta <style> y usa:
+        <link rel="stylesheet" href="styles.css">
+        */
+        /* ------------------------------------------------ */
+        /* Estilos Básicos para la Página */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Header / Hero inspirado en la referencia */
+        header.hero {
+            background: linear-gradient(135deg,#5b21b6 0%, #0ea5e9 100%);
+            color: #fff;
+            border-radius: 10px;
+            padding: 26px;
+            margin-bottom: 28px;
+        }
+        .hero .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .avatar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .avatar .photo-preview {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.18);
+            box-shadow: 0 6px 18px rgba(11, 20, 80, 0.12);
+            background: rgba(255,255,255,0.12);
+        }
+        .hero .hero-info {
+            flex: 1 1 380px;
+            min-width: 220px;
+        }
+        .hero h1 {
+            margin: 0 0 6px 0;
+            font-size: 1.6rem;
+            color: #fff;
+            font-weight: 700;
+        }
+        .hero .role,
+        .hero .contact-line {
+            margin: 0;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.98rem;
+        }
+        .hero .contact-line { opacity: 0.95; margin-top:6px }
+        .hero .contact-links {
+            justify-content: flex-start;
+            margin-top: 12px;
+        }
+        .hero .contact-links a { color: rgba(255,255,255,0.95); text-decoration: underline; font-weight:600 }
+        section {
+            margin-bottom: 40px;
+        }
+        section h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .profile-quote {
+            background: #e9ecef;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .skills-list, .experience-item {
+            margin-bottom: 20px;
+        }
+        .skills-list ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skills-list li {
+            background: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        .experience-item h3 {
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+        .project-item {
+            margin-bottom: 15px;
+        }
+        .project-item a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        /* Nuevos estilos para la sección de proyectos en tarjetas */
+        .projects-intro {
+            color: #475569;
+            margin-bottom: 18px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+            margin-top: 12px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 320px;
+        }
+        .project-card .card-image {
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f3f4f6;
+        }
+        .project-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .project-card h3 {
+            margin: 0;
+            color: #0f172a;
+            font-size: 1.05rem;
+        }
+        .project-card p {
+            color: #334155;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+        .project-card .card-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .card-link {
+            color: #075985;
+            text-decoration: none;
+            font-weight: 600;
+            background: transparent;
+        }
+        /* Estilos para Contacto/Redes */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+        .contact-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* Estilos para subida y previsualización de foto */
+        .photo-uploader {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .photo-preview {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+        }
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-uploader input[type="file"] {
+            display: inline-block;
+        }
+        .upload-label { font-size:0.9rem; color: rgba(255,255,255,0.95); }
+        /* Estilos para bloque de video embebido (miniatura clicable + enlace) */
+        .video-card {
+            max-width: 980px;
+            margin: 30px auto 48px auto;
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 20px 40px rgba(2,6,23,0.08);
+            text-align: center;
+        }
+        .video-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        /* Contenedor negro redondeado (como en la referencia) */
+        .video-embed {
+            background: #000;
+            border-radius: 14px;
+            padding: 26px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-embed iframe {
+            width: 100%;
+            height: 420px;
+            max-height: 60vh;
+            border: 0;
+            border-radius: 10px;
+            display: block;
+        }
+        /* Enlace centrado y más visible */
+        .video-credit {
+            display: block;
+            margin-top: 16px;
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        .video-thumb {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #000;
+            border-radius: 12px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .video-thumb::before {
+            content: '';
+            width: 200px;
+            height: 140px;
+            background-color: #FF0000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .video-thumb::after {
+            content: '▶';
+            position: absolute;
+            color: white;
+            font-size: 60px;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .video-thumb:hover {
+            transform: scale(1.05);
+        }
+        .play-button {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            transition: transform 120ms ease;
+        }
+        .video-link:hover .play-button { transform: scale(1.06); }
+        .video-credit { margin-top: 10px; color: #007bff; text-decoration: none; font-weight:600 }
+        /* Estilos para sección de Formación y Certificaciones */
+        #formacion ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+        .certification-item {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0ea5e9;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .certification-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(2,6,23,0.08);
+            border-left-color: #7c3aed;
+        }
+        .cert-title {
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0 0 6px 0;
+            font-size: 1.02rem;
+        }
+        .cert-institution {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        /* Modern professional overrides */
+        :root{
+            --bg: #f7fafc;
+            --card: #ffffff;
+            --muted: #64748b;
+            --text: #0f172a;
+            --primary: #0ea5e9;
+            --accent: #7c3aed;
+        }
+        html,body{height:100%}
+        body{
+            font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial;
+            background: var(--bg);
+            color: var(--text);
+            padding: 28px;
+        }
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--card);
+            padding: 36px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+        }
+        h1{font-weight:800;letter-spacing:-0.4px}
+        section h2{font-size:1.35rem;color:var(--text);margin-bottom:12px}
+
+        /* Hero polish */
+        header.hero{padding:34px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--primary));box-shadow:inset 0 -6px 30px rgba(0,0,0,0.06)}
+        .hero .hero-inner{gap:22px}
+        .avatar .photo-preview{width:160px;height:160px;border-radius:999px;border:4px solid rgba(255,255,255,0.18);box-shadow:0 8px 24px rgba(2,6,23,0.12)}
+        .hero h1{font-size:1.7rem}
+        .hero .role{font-weight:600;opacity:0.95}
+        .hero .contact-line{opacity:0.9}
+        .hero .contact-links{gap:12px}
+        .hero .contact-links li{list-style:none}
+
+        /* Projects refinement */
+        .projects-intro{font-size:1rem;color:var(--muted);max-width:900px}
+        .projects-grid{gap:24px}
+        .project-card{padding:20px;border-radius:12px;min-height:320px;transition:transform .18s ease,box-shadow .18s ease}
+        .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 36px rgba(2,6,23,0.08)}
+        .project-card .card-image img{height:170px;border-radius:8px}
+        .project-card h3{font-size:1.05rem;margin-top:6px}
+        .project-card p{color:var(--muted);line-height:1.5}
+        .card-link{color:var(--primary)}
+
+        /* Video card polish */
+        .video-card{padding:30px;border-radius:18px}
+        .video-embed{padding:30px;border-radius:14px}
+        .video-embed iframe{height:360px}
+        .video-credit{font-size:1rem}
+
+        /* Responsive tweaks */
+        @media (max-width:800px){
+            .hero .hero-inner{flex-direction:column;align-items:center;text-align:center}
+            .hero .hero-info{min-width:unset}
+            .project-card .card-image img{height:140px}
+            .video-embed iframe{height:240px}
+        }
+        /* ------------------------------------------------ */
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="hero">
+            <div class="hero-inner">
+                <div class="avatar">
+                    <div class="photo-preview" id="photoPreview">
+                        <img id="previewImg" alt="Foto de perfil" src="assets/perfil.jpg" style="display:block">
+                    </div>
+                </div>
+
+                <div class="hero-info">
+                    <h1>Angeles de Jesus Cisneros Garcia</h1>
+                    <p class="role">Desarrollador Full-Stack | TSU en Desarrollo de Software</p>
+                    <p class="contact-line">Durango, Mexico · angiecisnerosgarcia463@gmail.com · 6182332403</p>
+                    <ul class="contact-links">
+                        <li><a href="https://de.linkedin.com/" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.tuportafolio.com/" target="_blank">Proyectos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <hr>
+
+        <section id="perfil">
+            <h2>🌟 Perfil Profesional</h2>
+            <div class="profile-quote">
+                "Modernizo procesos con soluciones de software confiables y fáciles de mantener."
+            </div>
+            <p>Soy técnico superior universitario en desarrollo y gestión de software con <strong>3 años de experiencia</strong>. Me especializo en el ciclo completo de desarrollo, desde el análisis de requerimientos hasta el despliegue en la nube, entregando productos medibles y escalables.</p>
+        </section>
+
+        <section id="habilidades">
+            <h2>🛠️ Habilidades Clave</h2>
+            
+            <h3>Lenguajes y Frameworks</h3>
+            <div class="skills-list">
+                <ul>
+                    <li>React / React Native</li>
+                    <li>Node.js / Express</li>
+                    <li>Python (Flask)</li>
+                    <li>JavaScript / TypeScript</li>
+                </ul>
+            </div>
+
+            <h3>Bases de Datos y Cloud</h3>
+            <div class="skills-list">
+                <ul>
+                    <li>PostgreSQL / MySQL</li>
+                    <li>MongoDB</li>
+                    <li>Servicios AWS (EC2, S3)</li>
+                    <li>Git / Docker</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="experiencia">
+            <h2>💼 Experiencia Profesional Destacada</h2>
+
+            <div class="experience-item">
+                <h3>Centro de Bachillerato Tecnologico Agropecuario · Desarrollador </h3>
+                <p><em>Mayo, 2024 – Agosto 2024</em></p>
+                <ul>
+                    <li>Desarrolle un sistema escolar para el Centro de Bachillerato Tecnoligico AgropecuArio No.3<strong>Desde 0</strong>.</li>
+                    <li>Desarrollé la interfaz de usuario con React y el backend con Node.js para un sistema administrativo clave.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>NOM035 · Analista</h3>
+                <p><em>[Marzo 2025] – [Mayo 2025]</em></p>
+                <ul>
+                    <li>Implementé un sistema de formularios psicosocial para trabajadores <strong>su objetivo es aumentar el 50% o mas de uso del sistema</strong>.</li>
+                    <li>Responsable de la documentación técnica y el levantamiento de requisitos.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="proyectos">
+            <h2>🚀 Proyectos Seleccionados</h2>
+            <p class="projects-intro">Selección de iniciativas donde apliqué análisis de datos, diseño de APIs y experiencia móvil para entregar valor continuo.</p>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="assets/Gemini_Generated_Image_5ol5s85ol5s85ol5.png" alt="Imagen del proyecto bisuteria">
+                    </div>
+                    <h3>bisuteria</h3>
+                    <p>Catalogo de venta de bisuteria . Arquitectura Node.js + React Native.</p>
+                    <div class="card-links">
+                        <a class="card-link" href="https://angeles521.github.io/bisuteria-app/" target="_blank">Ver Caso de Estudio</a>
+                        <a class="card-link" href="https://angeles521.github.io/bisuteria-app/" target="_blank">Ver Repositorio</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="assets/norma035_logo_stacked_fullcolor.png" alt="Imagen del proyecto NOM035">
+                    </div>
+                    <h3>NOM035 </h3>
+                    <p>Formularios  en React y backend Express. Automatiza validaciones </p>
+                    <div class="card-links">
+                        <a class="card-link" href="https://www.gob.mx/stps/articulos/norma-oficial-mexicana-nom-035-stps-2018-factores-de-riesgo-psicosocial-en-el-trabajo-identificacion-analisis-y-prevencion" target="_blank">Ver Proyecto</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="assets/restaurante.png" alt="Imagen del proyecto Sistema escolar">
+                    </div>
+                    <h3>Sistema escolar</h3>
+                    <p>Visualizacion de calificaciones y seguimiento del alumno o profesor de la institucion </p>
+                    <div class="card-links">
+                        <a class="card-link" href="https://diego311004.github.io/restaurante_shalom/" target="_blank">Ver Prototipos</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="formacion">
+            <h2>📚 Formación y Certificaciones</h2>
+            <ul>
+                <li class="certification-item">
+                    <p class="cert-title">🎓 TSU en Desarrollo de Software</p>
+                    <p class="cert-institution">Universidad Tecnológica de Durango</p>
+                </li>
+                <li class="certification-item">
+                    <p class="cert-title">☁️ AWS Cloud Practitioner</p>
+                    <p class="cert-institution">Amazon Web Services</p>
+                </li>
+                <li class="certification-item">
+                    <p class="cert-title">🐍 Curso Avanzado de Python</p>
+                    <p class="cert-institution">Plataforma de Formación</p>
+                </li>
+            </ul>
+        </section>
+        
+        <div class="video-card" aria-label="Video embebido - al final">
+            <div class="video-wrapper">
+                <div class="video-embed" style="max-width:760px;margin:0 auto;border-radius:12px;overflow:hidden;">
+                    <!-- Logo de YouTube clicable -->
+                    <div class="video-thumb video-link" id="videoPoster" data-video-id="Gs4E-1uocxQ"></div>
+                </div>
+                <div>
+                    <a class="video-credit" href="https://youtu.be/Gs4E-1uocxQ" target="_blank" rel="noopener noreferrer">Ver el video en YouTube</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        (function(){
+            // La lógica para la previsualización de la foto ha sido simplificada,
+            // asumiendo que el src de la imagen de perfil se establece directamente en el HTML.
+            const previewImg = document.getElementById('previewImg');
+            if (previewImg && previewImg.src.endsWith('tu-foto-perfil.jpg')) {
+                // placeholder handling opcional
+            }
+
+            // Carga del iframe de YouTube al hacer click en el poster.
+            const poster = document.getElementById('videoPoster');
+            if (poster) {
+                poster.addEventListener('click', function() {
+                    const videoId = poster.dataset.videoId;
+                    const iframe = document.createElement('iframe');
+                    iframe.width = '100%';
+                    iframe.height = '420';
+                    iframe.loading = 'lazy';
+                    // Autoplay al cargar el iframe para una experiencia inmediata
+                    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+                    iframe.title = 'YouTube video player';
+                    iframe.frameBorder = '0';
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+                    // Reemplaza el poster con el iframe
+                    poster.parentNode.replaceChild(iframe, poster);
+                });
+            }
+        })();
+    </script>
+
+</body>
+</html>

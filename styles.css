@@ -1,0 +1,292 @@
+/* Modern professional overrides - Variables de color */
+:root{
+    --bg: #f7fafc;
+    --card: #ffffff;
+    --muted: #64748b;
+    --text: #0f172a;
+    --primary: #0ea5e9; /* Azul claro / Cian */
+    --accent: #7c3aed; /* Púrpura */
+}
+html,body{height:100%}
+body{
+    font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial;
+    background: var(--bg);
+    color: var(--text);
+    padding: 28px;
+    line-height: 1.6;
+    margin: 0;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--card);
+    padding: 36px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+h1{font-weight:800;letter-spacing:-0.4px}
+section h2{
+    font-size:1.35rem;
+    color:var(--text);
+    margin-bottom:12px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+section {
+    margin-bottom: 40px;
+}
+
+/* --- Hero polish / Header --- */
+header.hero{
+    padding:34px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--primary));
+    box-shadow:inset 0 -6px 30px rgba(0,0,0,0.06);
+    margin-bottom: 28px;
+    color: #fff;
+}
+.hero .hero-inner{
+    display: flex;
+    align-items: center;
+    gap:22px;
+    flex-wrap: wrap;
+}
+.avatar .photo-preview{
+    width:160px;
+    height:160px;
+    border-radius:999px; /* Para un círculo perfecto */
+    border:4px solid rgba(255,255,255,0.18);
+    box-shadow:0 8px 24px rgba(2,6,23,0.12);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.avatar .photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.hero .hero-info {
+    flex: 1 1 380px;
+    min-width: 220px;
+}
+.hero h1{
+    font-size:1.7rem;
+    margin: 0 0 6px 0;
+    color: #fff;
+}
+.hero .role{
+    font-weight:600;
+    opacity:0.95;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+.hero .contact-line{
+    opacity:0.9;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+    margin-top:6px;
+    font-size: 0.98rem;
+}
+.hero .contact-links{
+    display: flex;
+    justify-content: flex-start;
+    gap:12px;
+    list-style:none;
+    padding: 0;
+    margin-top: 12px;
+}
+.hero .contact-links a {
+    color: rgba(255,255,255,0.95);
+    text-decoration: underline;
+    font-weight:600;
+}
+
+/* --- Perfil --- */
+.profile-quote {
+    background: #e9ecef;
+    padding: 15px;
+    border-left: 5px solid var(--primary);
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--text);
+}
+
+/* --- Habilidades --- */
+.skills-list {
+    margin-bottom: 20px;
+}
+.skills-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.skills-list li {
+    background: var(--primary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* --- Experiencia --- */
+.experience-item {
+    margin-bottom: 20px;
+}
+.experience-item h3 {
+    color: var(--accent);
+    margin-bottom: 5px;
+}
+.experience-item ul {
+    margin-top: 8px;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+/* --- Projects refinement / Proyectos --- */
+.projects-intro{
+    font-size:1rem;
+    color:var(--muted);
+    max-width:900px;
+    margin-bottom: 18px;
+}
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 12px;
+}
+.project-card{
+    padding:20px;
+    border-radius:12px;
+    min-height:320px;
+    transition:transform .18s ease,box-shadow .18s ease;
+    background: var(--card);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.project-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 36px rgba(2,6,23,0.08);
+}
+.project-card .card-image{
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f3f4f6;
+}
+.project-card .card-image img{
+    width: 100%;
+    height:170px;
+    object-fit: cover;
+    border-radius:8px;
+    display: block;
+}
+.project-card h3{
+    font-size:1.05rem;
+    margin: 0;
+    color: #0f172a;
+}
+.project-card p{
+    color:var(--muted);
+    line-height:1.5;
+    margin: 0;
+    flex: 1 1 auto;
+}
+.project-card .card-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+.card-link{
+    color:var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- Formación --- */
+#formacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+.certification-item {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid var(--primary);
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.certification-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(2,6,23,0.08);
+    border-left-color: var(--accent);
+}
+.cert-title {
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 6px 0;
+    font-size: 1.02rem;
+}
+.cert-institution {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* --- Video card polish --- */
+.video-card{
+    max-width: 980px;
+    margin: 30px auto 48px auto;
+    background: #ffffff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow: 0 20px 40px rgba(2,6,23,0.08);
+    text-align: center;
+}
+.video-embed{
+    background: #000;
+    border-radius:14px;
+    padding:30px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-embed iframe{
+    width: 100%;
+    height:360px;
+    max-height: 60vh;
+    border: 0;
+    border-radius: 10px;
+    display: block;
+}
+.video-credit{
+    display: block;
+    margin-top: 10px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight:600;
+    font-size:1rem;
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width:800px){
+    .hero .hero-inner{
+        flex-direction:column;
+        align-items:center;
+        text-align:center
+    }
+    .hero .hero-info{min-width:unset}
+    .project-card .card-image img{height:140px}
+    .video-embed iframe{height:240px}
+}
