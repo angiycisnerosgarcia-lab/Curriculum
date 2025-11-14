@@ -12,13 +12,17 @@
         */
         /* ------------------------------------------------ */
         /* Estilos Básicos para la Página */
-        body {
+        body{
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
             background-color: #f4f4f9;
             color: #333;
+            box-sizing: border-box;
+        }
+        * {
+            box-sizing: border-box;
         }
         .container {
             max-width: 900px;
@@ -27,6 +31,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
         /* Header / Hero inspirado en la referencia */
         header.hero {
@@ -402,6 +407,74 @@
             .project-card .card-image img{height:140px}
             .video-embed iframe{height:240px}
         }
+
+        /* Mejorada responsividad para móvil */
+        @media (max-width:768px){
+            body{padding:16px}
+            .container{padding:20px;border-radius:10px}
+            .hero{padding:24px;margin-bottom:24px}
+            .hero h1{font-size:1.5rem}
+            .hero .role{font-size:0.95rem}
+            .hero .contact-line{font-size:0.9rem;word-break:break-word}
+            .avatar .photo-preview{width:120px;height:120px}
+            .hero .contact-links{flex-wrap:wrap;justify-content:center}
+            section h2{font-size:1.2rem;margin-bottom:12px}
+            .skills-list ul{flex-direction:column}
+            .skills-list li{display:inline-block;margin:4px;width:auto}
+            .projects-grid{grid-template-columns:1fr;gap:18px}
+            .project-card{min-height:auto;padding:16px}
+            .project-card .card-image img{height:160px;max-height:160px}
+            .video-thumb{width:250px;height:250px}
+            .video-card{padding:20px}
+            .video-embed{padding:20px}
+            .video-credit{font-size:0.95rem}
+            #formacion ul{grid-template-columns:1fr}
+            .certification-item{padding:16px}
+            .cert-title{font-size:0.98rem}
+        }
+
+        @media (max-width:480px){
+            body{padding:12px}
+            .container{padding:16px;border-radius:8px}
+            .hero{padding:20px;margin-bottom:20px}
+            .hero h1{font-size:1.3rem;margin-bottom:4px}
+            .hero .role{font-size:0.9rem}
+            .hero .contact-line{font-size:0.85rem}
+            .avatar .photo-preview{width:100px;height:100px}
+            section{margin-bottom:24px}
+            section h2{font-size:1.1rem;border-bottom:1px solid #ddd;padding-bottom:8px}
+            .experience-item h3{font-size:1rem}
+            .experience-item p{font-size:0.95rem;margin:4px 0}
+            .skills-list ul{gap:6px}
+            .skills-list li{font-size:0.8rem;padding:4px 8px}
+            .projects-grid{gap:14px}
+            .project-card{padding:12px;min-height:unset}
+            .project-card h3{font-size:0.98rem;margin:4px 0}
+            .project-card p{font-size:0.9rem;line-height:1.4}
+            .card-links{flex-direction:column;gap:8px}
+            .card-link{font-size:0.9rem;display:block}
+            .video-thumb{width:200px;height:200px}
+            .video-thumb::before{width:150px;height:100px}
+            .video-thumb::after{font-size:40px}
+            .video-card{padding:16px}
+            .video-embed{padding:16px}
+            .certification-item{padding:12px;font-size:0.9rem}
+            .cert-title{font-size:0.95rem}
+            .cert-institution{font-size:0.85rem}
+        }
+
+        @media (max-width:360px){
+            body{padding:8px}
+            .container{padding:12px}
+            .hero{padding:16px}
+            .hero h1{font-size:1.2rem}
+            .avatar .photo-preview{width:80px;height:80px}
+            .hero .contact-links{gap:8px;flex-wrap:wrap}
+            .hero .contact-links a{font-size:0.85rem}
+            .video-thumb{width:160px;height:160px}
+            .video-thumb::before{width:120px;height:80px}
+            .video-thumb::after{font-size:32px}
+        }
         /* ------------------------------------------------ */
     </style>
 </head>
@@ -547,8 +620,8 @@
         <div class="video-card" aria-label="Video embebido - al final">
             <div class="video-wrapper">
                 <div class="video-embed" style="max-width:760px;margin:0 auto;border-radius:12px;overflow:hidden;">
-                    <!-- Logo de YouTube clicable -->
-                    <div class="video-thumb video-link" id="videoPoster" data-video-id="Gs4E-1uocxQ"></div>
+                    <!-- Logo de YouTube clicable (abre en YouTube) -->
+                    <a class="video-thumb video-link" id="videoPoster" data-video-id="Gs4E-1uocxQ" href="https://www.youtube.com/watch?v=Gs4E-1uocxQ" target="_blank" rel="noopener noreferrer" aria-label="Abrir video en YouTube"></a>
                 </div>
                 <div>
                     <a class="video-credit" href="https://youtu.be/Gs4E-1uocxQ" target="_blank" rel="noopener noreferrer">Ver el video en YouTube</a>
@@ -566,25 +639,7 @@
                 // placeholder handling opcional
             }
 
-            // Carga del iframe de YouTube al hacer click en el poster.
-            const poster = document.getElementById('videoPoster');
-            if (poster) {
-                poster.addEventListener('click', function() {
-                    const videoId = poster.dataset.videoId;
-                    const iframe = document.createElement('iframe');
-                    iframe.width = '100%';
-                    iframe.height = '420';
-                    iframe.loading = 'lazy';
-                    // Autoplay al cargar el iframe para una experiencia inmediata
-                    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
-                    iframe.title = 'YouTube video player';
-                    iframe.frameBorder = '0';
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                    iframe.allowFullscreen = true;
-                    // Reemplaza el poster con el iframe
-                    poster.parentNode.replaceChild(iframe, poster);
-                });
-            }
+            // El poster ahora es un enlace que abre el video en YouTube
         })();
     </script>
 
